@@ -105,7 +105,7 @@ define sudo::conf(
     group   => $sudo::params::config_file_group,
     mode    => '0440',
     source  => $source,
-    content => $content_real,
+    content => "# This file is managed by Puppet; changes may be overwritten\n${content_real}",
     notify  => $notify_real,
   }
 
